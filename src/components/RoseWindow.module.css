@@ -1,0 +1,67 @@
+.rose {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 24px 40px color-mix(in srgb, var(--altar) 30%, transparent));
+}
+
+.frame {
+  fill: var(--paper-3);
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+.lead {
+  fill: var(--lead);
+}
+.ringLead {
+  fill: none;
+  stroke: var(--lead);
+  stroke-width: 6;
+}
+.tracery {
+  stroke: var(--lead);
+  stroke-width: 5;
+}
+
+.season,
+.blue,
+.gold,
+.red {
+  stroke: var(--lead);
+  stroke-width: 3;
+  transition: fill 0.8s ease;
+}
+.season {
+  fill: var(--altar);
+}
+.blue {
+  fill: var(--glass-blue);
+}
+.gold {
+  fill: var(--gold);
+}
+.red {
+  fill: var(--lit-red);
+}
+
+.cross {
+  fill: var(--lead);
+}
+
+.spinSlow,
+.spinBack {
+  transform-box: view-box;
+  transform-origin: 200px 200px;
+}
+.spinSlow {
+  animation: spin 240s linear infinite;
+}
+.spinBack {
+  animation: spin 180s linear infinite reverse;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

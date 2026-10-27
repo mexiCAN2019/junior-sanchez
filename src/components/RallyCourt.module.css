@@ -1,0 +1,137 @@
+.figure {
+  margin: 0;
+}
+
+.hud {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(16px, 3vw, 32px);
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.hud > div {
+  display: flex;
+  flex-direction: column;
+}
+.hud strong {
+  font-family: var(--serif-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--court);
+}
+.message {
+  margin: 0 0 0 auto;
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--ink-2);
+}
+
+.court {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  cursor: crosshair;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  box-shadow: 0 30px 60px -32px rgba(60, 22, 6, 0.55);
+}
+
+.surround {
+  fill: #a84e2a;
+}
+.surface {
+  fill: #c76a40;
+}
+
+.lines {
+  fill: none;
+  stroke: #f6efe3;
+  stroke-width: 2.5;
+}
+
+.net {
+  fill: #2a2520;
+}
+.netCord {
+  stroke: #f6efe3;
+  stroke-width: 3;
+}
+.netShadow {
+  stroke: rgba(40, 18, 6, 0.35);
+  stroke-width: 4;
+}
+
+.target {
+  fill: rgba(232, 242, 92, 0.16);
+  stroke: #e8f25c;
+  stroke-width: 2;
+  stroke-dasharray: 5 5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: target-in 0.5s ease-out;
+}
+
+@keyframes target-in {
+  from {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+}
+
+.mark {
+  fill: rgba(80, 30, 10, 0.4);
+  animation: fade 1.6s ease-out forwards;
+}
+.markOut {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  animation: fade 1.6s ease-out forwards;
+}
+
+@keyframes fade {
+  to {
+    opacity: 0;
+  }
+}
+
+.you circle {
+  fill: #1c1915;
+  stroke: #f6efe3;
+  stroke-width: 2.5;
+}
+.them circle {
+  fill: #f6efe3;
+  stroke: #1c1915;
+  stroke-width: 2.5;
+}
+.you text,
+.them text {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-anchor: middle;
+  fill: #f6efe3;
+}
+
+.shadow {
+  fill: rgba(40, 16, 4, 0.32);
+}
+.ball {
+  fill: #dfe94e;
+  stroke: #9fa82c;
+  stroke-width: 1.5;
+}
+
+@media (max-width: 640px) {
+  .message {
+    margin-left: 0;
+    flex-basis: 100%;
+  }
+}

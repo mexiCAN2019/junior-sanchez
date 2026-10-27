@@ -1,0 +1,100 @@
+.timer {
+  --state: var(--ink);
+  padding: clamp(20px, 3vw, 32px);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: 8px 8px 0 var(--ring);
+}
+.fight {
+  --state: var(--ring);
+}
+.rest {
+  --state: var(--muted);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pips {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pips li {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ring);
+}
+.pips .pipDone {
+  background: var(--ring);
+}
+.pips .pipNow {
+  background: color-mix(in srgb, var(--ring) 40%, transparent);
+  animation: breathe 1.4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+.phase {
+  margin: 1.2em 0 0;
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--state);
+}
+
+.clock {
+  margin: 0;
+  font-family: var(--serif-display);
+  font-size: clamp(4.5rem, 12vw, 8rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--state);
+  transition: color 0.4s;
+}
+
+.track {
+  height: 4px;
+  margin: 18px 0 22px;
+  background: var(--rule);
+  overflow: hidden;
+}
+.track span {
+  display: block;
+  height: 100%;
+  background: var(--state);
+  transform-origin: left;
+  transition: transform 0.25s linear;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.controls :global(.btn-solid) {
+  --tone: var(--ring);
+}
+.controls button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.controls button:disabled:hover {
+  background: transparent;
+  color: inherit;
+}

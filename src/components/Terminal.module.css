@@ -1,0 +1,103 @@
+.terminal {
+  background: var(--term-bg);
+  color: var(--term-ink);
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 0.86rem;
+  line-height: 1.6;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 30px 60px -30px rgba(20, 14, 6, 0.55),
+    8px 8px 0 var(--code);
+  cursor: text;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  background: #1d1b17;
+  border-bottom: 1px solid #2b2822;
+}
+
+.dots {
+  display: flex;
+  gap: 7px;
+}
+.dots i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #3a362f;
+}
+.dots i:first-child {
+  background: #d4574a;
+}
+.dots i:nth-child(2) {
+  background: #d6a63f;
+}
+.dots i:nth-child(3) {
+  background: #5d9b5f;
+}
+
+.title {
+  font-size: 0.74rem;
+  color: #8f877a;
+}
+
+.screen {
+  height: 340px;
+  padding: 16px 18px 18px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #3a362f transparent;
+}
+
+.line {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.prompt {
+  color: #86b5e3;
+  user-select: none;
+}
+
+.out {
+  color: #d9d1c1;
+}
+.err {
+  color: #ef8b7d;
+}
+.sys {
+  color: #8f877a;
+  margin-bottom: 0.6em;
+}
+
+.inputRow {
+  display: flex;
+  gap: 0.6em;
+  align-items: baseline;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #f4ecdb;
+  font: inherit;
+  caret-color: #e5c470;
+}
+
+/* Keep iOS from zooming the page when the field is focused. */
+@media (pointer: coarse) {
+  .input {
+    font-size: 16px;
+  }
+}

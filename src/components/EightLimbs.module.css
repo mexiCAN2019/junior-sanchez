@@ -1,0 +1,125 @@
+.wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(16px, 3vw, 40px);
+  align-items: center;
+}
+
+.figure {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  justify-self: center;
+  overflow: visible;
+}
+
+.halo {
+  fill: color-mix(in srgb, var(--ring) 7%, transparent);
+  stroke: color-mix(in srgb, var(--ring) 30%, transparent);
+  stroke-dasharray: 2 6;
+}
+
+.bones {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mongkol,
+.mongkolTail {
+  fill: none;
+  stroke: var(--ring);
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+.mongkolTail {
+  stroke-width: 3;
+}
+
+.prajioud {
+  stroke: var(--ring);
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+
+.limb {
+  cursor: pointer;
+  outline: none;
+}
+.hit {
+  fill: transparent;
+}
+.node {
+  fill: var(--paper);
+  stroke: var(--ring);
+  stroke-width: 3;
+  transition: fill 0.2s, r 0.2s;
+}
+.pulse {
+  fill: none;
+  stroke: var(--ring);
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse 2.4s ease-out infinite;
+}
+.found .node {
+  fill: color-mix(in srgb, var(--ring) 35%, var(--paper));
+}
+.on .node,
+.limb:focus-visible .node {
+  fill: var(--ring);
+  r: 10;
+}
+.limb:focus-visible .pulse {
+  stroke-width: 3;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+.panel {
+  min-height: 260px;
+}
+.thai {
+  margin: 0.2em 0 0;
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  line-height: 1.1;
+  color: var(--ring);
+}
+.name {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 0.1em 0 0.5em;
+}
+.name span {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-2);
+  font-size: 0.7em;
+}
+.body {
+  color: var(--ink-2);
+  font-size: 1.05rem;
+}
+
+@media (max-width: 560px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+  .figure {
+    max-width: 280px;
+  }
+  .panel {
+    min-height: 220px;
+  }
+}

@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Code, Court, Ring & Altar
 
-## Getting Started
-
-First, run the development server:
+A personal almanac about programming, tennis, Muay Thai and the Catholic faith.
+Built with Next.js (App Router), React and TypeScript. No UI libraries, no Tailwind: just CSS.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # static production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Making it yours
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Personal content lives in **`src/content/site.ts`**: name, intro, the phrases the hero types, links
+and projects. The chapter text is in `src/components/sections/*.tsx`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How it's put together
 
-## Learn More
+| Where | What |
+| --- | --- |
+| `src/app/layout.tsx` | Fonts (Fraunces, Newsreader, JetBrains Mono), metadata, and a tiny script that restores the theme before first paint |
+| `src/app/globals.css` | Design tokens (light + dark), and page/section layout |
+| `src/lib/liturgical.ts` | A simplified Roman Rite calendar: Easter, seasons, weeks, major feasts, liturgical color |
+| `src/components/LiturgyProvider.tsx` | Computes today's liturgical day in the visitor's browser and sets `<html data-lit>`, which drives the site-wide `--altar` accent |
+| `src/components/Terminal.tsx` | Chapter I: a small shell (`help`, `date`, `cd court`, …) |
+| `src/components/RallyCourt.tsx` | Chapter II: a to-scale clay court rally game; personal best kept in `localStorage` |
+| `src/components/EightLimbs.tsx`, `RoundTimer.tsx` | Chapter III: the eight weapons of Muay Thai, and a 5 × 3:00 round timer with a synthesized bell |
+| `src/components/RoseWindow.tsx`, `LiturgicalCalendar.tsx` | Chapter IV: a stained-glass rose window and the liturgical year strip, where clicking a season previews its color |
 
-To learn more about Next.js, take a look at the following resources:
+## Deploying
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The home page prerenders as static HTML, so it deploys anywhere that runs Next.js
+(Vercel is the zero-config option).
